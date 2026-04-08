@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ARYA Hair Salon | Barbiere Premium a Triggiano (Bari)</title>
+    <meta name="description" content="ARYA Hair Salon - Barbiere premium a Triggiano, Bari. Tagli di precisione, barba artistica, styling esclusivo. Fondato da Gianni Selvaggi. Prenota ora!">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%82%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@300;400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+</head>
+<body>
+    <script>
+        (function() {
+            window.addEventListener('unload', function() {});
+            try {
+                if (window.location.hash) window.location.hash = '';
+                window.history.replaceState({ scrollY: 0 }, '', window.location.href.split('#')[0]);
+                history.scrollRestoration = 'manual';
+            } catch(e) {}
+            window.scrollTo(0, 0);
+            try { document.documentElement.scrollTop = 0; } catch(e) {}
+            try { document.body.scrollTop = 0; } catch(e) {}
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) window.location.reload();
+                setTimeout(function() { window.scrollTo(0, 0); }, 0);
+            });
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('a[data-target]');
+                if (link) {
+                    e.preventDefault(); e.stopPropagation();
+                    var targetId = link.getAttribute('data-target');
+                    var target = document.getElementById(targetId);
+                    if (target) { window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }
+                    document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
+                    var al = document.querySelector('.nav-link[data-target="' + targetId + '"]');
+                    if (al) al.classList.add('active');
+                    var mm = document.getElementById('mobileMenu');
+                    if (mm && mm.classList.contains('active')) { mm.classList.remove('active'); document.body.classList.remove('menu-open'); }
+                    return false;
+                }
+            }, true);
+            function forceTop() { window.scrollTo(0, 0); try { document.documentElement.scrollTop = 0; } catch(e) {} try { document.body.scrollTop = 0; } catch(e) {} }
+            forceTop();
+            requestAnimationFrame(forceTop);
+            requestAnimationFrame(function() { requestAnimationFrame(forceTop); });
+            setTimeout(forceTop, 50); setTimeout(forceTop, 150); setTimeout(forceTop, 500);
+            window.addEventListener('load', function() { setTimeout(forceTop, 0); setTimeout(forceTop, 100); });
+        })();
+    </script>
+    <style>
+        html, body { scroll-behavior: auto !important; overflow-x: hidden; }
+        .skip-link { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+    </style>
+    <div id="top-focus-trap" tabindex="0" style="position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;pointer-events:none;" aria-hidden="true"></div>
+    <a href="javascript:void(0)" class="skip-link" onclick="document.getElementById('main').scrollIntoView({block:'start',behavior:'smooth'});return false;" tabindex="-1">Vai al contenuto</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigazione">
+        <div class="nav-container">
+            <a href="javascript:void(0)" data-target="home" class="nav-logo"><img src="logo.png" alt="ARYA" class="logo-img" width="150" height="50"></a>
+            <ul class="nav-menu">
+                <li><a href="javascript:void(0)" data-target="home" class="nav-link active">Home</a></li>
+                <li><a href="javascript:void(0)" data-target="chi-siamo" class="nav-link">Chi Siamo</a></li>
+                <li><a href="javascript:void(0)" data-target="fondatore" class="nav-link">Il Fondatore</a></li>
+                <li><a href="javascript:void(0)" data-target="servizi" class="nav-link">Servizi</a></li>
+                <li><a href="javascript:void(0)" data-target="salone" class="nav-link">Salone</a></li>
+                <li><a href="javascript:void(0)" data-target="portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="javascript:void(0)" data-target="recensioni" class="nav-link">Recensioni</a></li>
+                <li><a href="javascript:void(0)" data-target="prodotti" class="nav-link">Prodotti</a></li>
+                <li><a href="javascript:void(0)" data-target="contatti" class="nav-link">Contatti</a></li>
+            </ul>
+            <a href="javascript:void(0)" data-target="prenotazione" class="nav-cta">Prenota</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu" aria-hidden="true">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-list">
+                <li><a href="javascript:void(0)" data-target="home" class="mobile-nav-link">Home</a></li>
+                <li><a href="javascript:void(0)" data-target="chi-siamo" class="mobile-nav-link">Chi Siamo</a></li>
+                <li><a href="javascript:void(0)" data-target="fondatore" class="mobile-nav-link">Il Fondatore</a></li>
+                <li><a href="javascript:void(0)" data-target="servizi" class="mobile-nav-link">Servizi</a></li>
+                <li><a href="javascript:void(0)" data-target="salone" class="mobile-nav-link">Salone</a></li>
+                <li><a href="javascript:void(0)" data-target="portfolio" class="mobile-nav-link">Portfolio</a></li>
+                <li><a href="javascript:void(0)" data-target="recensioni" class="mobile-nav-link">Recensioni</a></li>
+                <li><a href="javascript:void(0)" data-target="prodotti" class="mobile-nav-link">Prodotti</a></li>
+                <li><a href="javascript:void(0)" data-target="contatti" class="mobile-nav-link">Contatti</a></li>
+            </ul>
+            <a href="javascript:void(0)" data-target="prenotazione" class="mobile-cta">Prenota Ora</a>
+        </div>
+    </div>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-split">
+                <div class="hero-logo-side">
+                    <img src="logo.png" alt="ARYA Premium Barber House" class="hero-logo-main">
+                    <p class="hero-slogan">Dove il taglio diventa <em>arte</em></p>
+                    <p class="hero-tagline">Premium Barber House &mdash; Triggiano, Bari</p>
+                </div>
+                <div class="hero-video-side">
+                    <video autoplay muted loop playsinline class="hero-video"><source src="New team in town!.mp4" type="video/mp4"></video>
+                    <div class="hero-video-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHI SIAMO -->
+        <section class="chi-siamo" id="chi-siamo">
+            <div class="animated-bg"></div>
+            <div class="container">
+                <span class="section-label">Chi Siamo</span>
+                <h2 class="section-heading">Il <em>Team</em> ARYA</h2>
+                <p class="section-intro">Dietro ogni taglio perfetto c&rsquo;&egrave; un team unito dalla stessa passione. Da ARYA non trovi solo professionisti &mdash; trovi persone che credono nel proprio mestiere.</p>
+                <div class="team-showcase">
+                    <div class="team-photo-wrapper"><img src="Team.png" alt="Team ARYA" loading="lazy"></div>
+                    <div class="team-description">
+                        <h3>Professionisti dello Stile</h3>
+                        <p>Ogni membro del nostro team condivide la stessa visione: eccellenza, cura del dettaglio e passione per il mestiere.</p>
+                        <a href="javascript:void(0)" data-target="prenotazione" class="btn btn-primary">Prenota il Tuo Appuntamento</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FONDATORE -->
+        <section class="fondatore" id="fondatore">
+            <div class="container">
+                <div class="fondatore-grid">
+                    <div class="fondatore-image">
+                        <div class="image-frame"><img src="gianni-portrait.png" alt="Gianni Selvaggi" loading="lazy"></div>
+                        <span class="image-caption">Gianni Selvaggi &mdash; Fondatore</span>
+                    </div>
+                    <div class="fondatore-content">
+                        <span class="section-label">Il Fondatore</span>
+                        <h2 class="section-heading">Gianni <em>Selvaggi</em></h2>
+                        <p class="fondatore-text">Prima di creare <strong>ARYA</strong>, Gianni Selvaggi aveva gi&agrave; costruito una solida esperienza sul campo. Il passaggio in <strong>Menspire</strong>, tra Milano e Amsterdam, ha raffinato il suo sguardo. Poi <strong>UK Academy</strong> ha consolidato tecnica e visione internazionale.</p>
+                        <div class="fondatore-stats">
+                            <div class="stat"><span class="stat-number" data-count="10">0</span><span class="stat-suffix">+</span><span class="stat-label">Anni di Esperienza</span></div>
+                            <div class="stat"><span class="stat-number" data-count="3000">0</span><span class="stat-suffix">+</span><span class="stat-label">Clienti Soddisfatti</span></div>
+                            <div class="stat"><span class="stat-number" data-count="2">0</span><span class="stat-suffix"></span><span class="stat-label">Citt&agrave; Formative</span></div>
+                        </div>
+                        <div class="fondatore-social">
+                            <a href="https://www.instagram.com/arya_hairsalon/" target="_blank" rel="noopener noreferrer" class="btn-social instagram">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIZI -->
+        <section class="services" id="servizi">
+            <div class="container">
+                <span class="section-label section-label-dark">Servizi</span>
+                <h2 class="section-heading section-heading-dark">I Nostri <em>Servizi</em></h2>
+                <div class="service-categories">
+                    <button class="category-btn active" data-category="all">Tutti</button>
+                    <button class="category-btn" data-category="bambino">Taglio Bambino</button>
+                    <button class="category-btn" data-category="barba">Barba</button>
+                    <button class="category-btn" data-category="styling">Hair Styling</button>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-category="bambino">
+                        <h3 class="service-title">Taglio Bambino</h3>
+                        <p class="service-description">Taglio dedicato ai pi&ugrave; piccoli (max 10 anni).</p>
+                        <div class="service-meta"><span class="service-duration">25 min</span><span class="service-price">13 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="barba">
+                        <h3 class="service-title">Rasatura a Lama</h3>
+                        <p class="service-description">Rasatura con panno caldo e freddo.</p>
+                        <div class="service-meta"><span class="service-duration">20 min</span><span class="service-price">10 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="barba">
+                        <h3 class="service-title">Barba Relax</h3>
+                        <p class="service-description">Rifinitura barba con panno caldo.</p>
+                        <div class="service-meta"><span class="service-duration">20 min</span><span class="service-price">10 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="barba">
+                        <h3 class="service-title">Rifinitura Barba</h3>
+                        <p class="service-description">Definizione contorni e linee.</p>
+                        <div class="service-meta"><span class="service-duration">20 min</span><span class="service-price">7 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="styling">
+                        <h3 class="service-title">Rasatura Capelli</h3>
+                        <p class="service-description">Rasatura con shampoo purificante.</p>
+                        <div class="service-meta"><span class="service-duration">20 min</span><span class="service-price">10 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="styling">
+                        <h3 class="service-title">Taglio Classico</h3>
+                        <p class="service-description">Pettine e forbice.</p>
+                        <div class="service-meta"><span class="service-duration">1 h</span><span class="service-price">25 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="styling">
+                        <h3 class="service-title">Combo Completo</h3>
+                        <p class="service-description">Shampoo + taglio + barba.</p>
+                        <div class="service-meta"><span class="service-duration">1 h</span><span class="service-price">25 &euro;</span></div>
+                    </div>
+                    <div class="service-card" data-category="styling">
+                        <h3 class="service-title">Taglio + Shampoo</h3>
+                        <p class="service-description">Taglio completo con shampoo.</p>
+                        <div class="service-meta"><span class="service-duration">40 min</span><span class="service-price">20 &euro;</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SALONE -->
+        <section class="salon" id="salone">
+            <div class="salon-grid">
+                <div class="salon-image"><img src="arya-salon-.jpeg" alt="Salone ARYA" loading="lazy"></div>
+                <div class="salon-content">
+                    <span class="section-label">Salone</span>
+                    <h2 class="section-heading">Dove Ogni Dettaglio<br><em>Parla di Te</em></h2>
+                    <p class="salon-text">Non &egrave; solo un salone. &Egrave; un luogo dove il tempo rallenta. Dove ogni superficie, ogni luce, ogni gesto &egrave; pensato per una sola ragione: <em>farvi sentire esattamente dove dovete essere</em>.</p>
+                    <a href="javascript:void(0)" data-target="prenotazione" class="btn btn-primary">Vivi l&rsquo;Esperienza</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-heading">I Nostri <em>Lavori</em></h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" tabindex="0"><img src="PORT1.png" alt="Look 01" loading="lazy"><div class="portfolio-overlay"><h4>Look 01</h4><p>ARYA Signature Cut</p></div></div>
+                    <div class="portfolio-item" tabindex="0"><img src="PORT2.png" alt="Look 02" loading="lazy"><div class="portfolio-overlay"><h4>Look 02</h4><p>Precision Fade</p></div></div>
+                    <div class="portfolio-item" tabindex="0"><img src="PORT3.png" alt="Look 03" loading="lazy"><div class="portfolio-overlay"><h4>Look 03</h4><p>Textured Style</p></div></div>
+                    <div class="portfolio-item" tabindex="0"><img src="PORT4.jpeg" alt="Look 04" loading="lazy"><div class="portfolio-overlay"><h4>Look 04</h4><p>Modern Classic</p></div></div>
+                    <div class="portfolio-item" tabindex="0"><img src="PORT5.jpeg" alt="Look 05" loading="lazy"><div class="portfolio-overlay"><h4>Look 05</h4><p>Beard Design</p></div></div>
+                    <div class="portfolio-item" tabindex="0"><img src="PORT6.jpeg" alt="Look 06" loading="lazy"><div class="portfolio-overlay"><h4>Look 06</h4><p>Clean Finish</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECENSIONI -->
+        <section class="reviews" id="recensioni">
+            <div class="container">
+                <span class="section-label">Recensioni</span>
+                <h2 class="section-heading">Cosa Dicono di <em>Noi</em></h2>
+                <div class="reviews-header">
+                    <div class="rating-badge">
+                        <span class="rating-score">5,0</span>
+                        <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <span class="rating-count">(10 recensioni)</span>
+                    </div>
+                </div>
+                <div class="reviews-grid">
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">F</div><div><h4 class="review-name">Flavio D</h4><time class="review-date">2 ago 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Esperienza eccezionale, come sempre &#10084;&#65039;</p></article>
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">G</div><div><h4 class="review-name">Giuseppe C</h4><time class="review-date">1 ago 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Top</p></article>
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">T</div><div><h4 class="review-name">Thomas P</h4><time class="review-date">1 ago 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">top barber</p></article>
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">A</div><div><h4 class="review-name">Alessio B</h4><time class="review-date">1 ago 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Grade Gianni! Ottimo servizio!</p></article>
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">B</div><div><h4 class="review-name">Benedetto S</h4><time class="review-date">9 lug 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Gianni, una persona generosa e molto accogliente. Locale top.</p></article>
+                    <article class="review-card"><div class="review-header"><div class="review-avatar">F</div><div><h4 class="review-name">Francesco B</h4><time class="review-date">4 lug 2025</time></div></div><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">Grande Gianni da sempre &#128170;</p></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODOTTI -->
+        <section class="products" id="prodotti">
+            <div class="container">
+                <span class="section-label section-label-dark">Prodotti</span>
+                <h2 class="section-heading section-heading-dark">Prodotti <em>Premium</em></h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image"><img src="product-clay-pomade.png" alt="Clay Pomade" loading="lazy"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Clay Pomade</h4>
+                            <p class="product-description">Tenuta media, finish opaco. Fragranza "Black Forest".</p>
+                            <div class="product-actions"><a href="https://wa.me/390801234567?text=Ciao!%20Vorrei%20sapere%20il%20prezzo%20della%20Clay%20Pomade" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">Chiedi su WhatsApp</a></div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="product-line-complete.png" alt="Linea Completa" loading="lazy"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Linea Completa</h4>
+                            <p class="product-description">Shave Aftershave Spray, cere modellanti e polveri volumizzanti.</p>
+                            <div class="product-actions"><a href="https://wa.me/390801234567?text=Ciao!%20Vorrei%20sapere%20il%20prezzo%20della%20Linea%20Completa" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">Chiedi su WhatsApp</a></div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="product-red-passion.png" alt="Red Passion" loading="lazy"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Pomade Red Passion</h4>
+                            <p class="product-description">Tenuta forte (High Fix), finish lucido. Look Old School.</p>
+                            <div class="product-actions"><a href="https://wa.me/390801234567?text=Ciao!%20Vorrei%20sapere%20il%20prezzo%20della%20Pomade%20Red%20Passion" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">Chiedi su WhatsApp</a></div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image"><img src="product-dust-wax.png" alt="Dust Wax" loading="lazy"></div>
+                        <div class="product-info">
+                            <h4 class="product-name">Dust Wax - Extreme Volume</h4>
+                            <p class="product-description">Polvere volumizzante per volume esplosivo dalla radice.</p>
+                            <div class="product-actions"><a href="https://wa.me/390801234567?text=Ciao!%20Vorrei%20sapere%20il%20prezzo%20della%20Dust%20Wax" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp">Chiedi su WhatsApp</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRENOTAZIONE -->
+        <section class="booking" id="prenotazione">
+            <div class="container">
+                <span class="section-label">Prenotazione</span>
+                <h2 class="section-heading">Prenota con l&rsquo;<em>Agente ARYA</em></h2>
+                <p class="section-intro" style="text-align:center;">Parla con il nostro agente AI &mdash; ti guider&agrave; passo dopo passo per prenotare il tuo appuntamento.</p>
+                <div class="booking-agent-wrapper">
+                    <div class="ai-chat-container" id="aiChatContainer">
+                        <div class="ai-chat-header">
+                            <div class="ai-avatar">&#9986;</div>
+                            <div class="ai-header-info">
+                                <h4>Agente ARYA</h4>
+                                <span class="ai-status">Online</span>
+                            </div>
+                        </div>
+                        <div class="ai-chat-messages" id="aiChatMessages"></div>
+                        <div class="ai-chat-input" id="aiChatInput"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATTI -->
+        <section class="contact" id="contatti">
+            <div class="container">
+                <span class="section-label">Contatti</span>
+                <h2 class="section-heading">Vieni a <em>Trovarci</em></h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4>Indirizzo</h4>
+                            <p>Via Cesare Battisti 225<br>70019 Triggiano, Puglia, Italia</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Orari di Apertura</h4>
+                            <ul class="hours-list">
+                                <li><span class="day">Luned&igrave;</span><span class="status closed">Chiuso</span></li>
+                                <li><span class="day">Marted&igrave;</span><span class="status open">09:30 &ndash; 19:00</span></li>
+                                <li><span class="day">Mercoled&igrave;</span><span class="status open">09:30 &ndash; 19:00</span></li>
+                                <li><span class="day">Gioved&igrave;</span><span class="status open">09:30 &ndash; 19:00</span></li>
+                                <li><span class="day">Venerd&igrave;</span><span class="status open">09:30 &ndash; 19:00</span></li>
+                                <li><span class="day">Sabato</span><span class="status open">09:30 &ndash; 18:00</span></li>
+                                <li><span class="day">Domenica</span><span class="status closed">Chiuso</span></li>
+                            </ul>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Contatti</h4>
+                            <p>
+                                <a href="https://www.instagram.com/arya_hairsalon/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+                                <a href="https://wa.me/390801234567" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2656.5!2d16.9175!3d41.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1340d1c0a3c5e4b7%3A0x6e5e3c5e4b7a8c9d!2sVia%20Cesare%20Battisti%2C%20225%2C%2070019%20Triggiano%20BA!5e0!3m2!1sit!2sit!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Mappa ARYA"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="ARYA" class="footer-logo">
+                    <p>Premium Barber House</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Navigazione</h5>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-target="home">Home</a></li>
+                            <li><a href="javascript:void(0)" data-target="chi-siamo">Chi Siamo</a></li>
+                            <li><a href="javascript:void(0)" data-target="fondatore">Il Fondatore</a></li>
+                            <li><a href="javascript:void(0)" data-target="salone">Salone</a></li>
+                            <li><a href="javascript:void(0)" data-target="portfolio">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Link Utili</h5>
+                        <ul>
+                            <li><a href="javascript:void(0)" data-target="recensioni">Recensioni</a></li>
+                            <li><a href="javascript:void(0)" data-target="prodotti">Prodotti</a></li>
+                            <li><a href="javascript:void(0)" data-target="prenotazione">Prenota</a></li>
+                            <li><a href="javascript:void(0)" data-target="contatti">Contatti</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ARYA Hair Salon. Tutti i diritti riservati.</p>
+                <p class="footer-credits">Via Cesare Battisti 225, Triggiano (BA)</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Torna in alto">&#8593;</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Chiudi">&times;</button>
+        <img class="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmModal" role="dialog" aria-label="Conferma prenotazione" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-check">&#10003;</div>
+            <h3>Prenotazione Confermata!</h3>
+            <div class="modal-details" id="modalDetails"></div>
+            <div class="modal-actions">
+                <a href="#" id="whatsappConfirm" target="_blank" rel="noopener noreferrer" class="btn-social whatsapp" style="margin-bottom:0.5rem;">Invia conferma su WhatsApp</a>
+                <button class="btn btn-primary" onclick="closeModal()">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="scroll-animations.js"></script>
+</body>
+</html>

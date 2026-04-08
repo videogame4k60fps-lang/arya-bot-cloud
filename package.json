@@ -1,0 +1,22 @@
+{
+  "name": "arya_barber_shop",
+  "version": "1.0.0",
+  "description": "Un sito web professionale, minimalista ed elegante per una barberia di alto livello.",
+  "main": "script.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "groq-sdk": "^1.1.2",
+    "qrcode-terminal": "^0.12.0",
+    "sqlite3": "^6.0.1",
+    "whatsapp-web.js": "^1.34.6"
+  }
+}
