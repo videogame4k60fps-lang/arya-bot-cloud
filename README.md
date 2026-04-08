@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ARYA - Premium Barber House Website
 
 Un sito web professionale, minimalista ed elegante per una barberia di alto livello.
@@ -114,3 +115,6 @@ Per assistenza o personalizzazioni aggiuntive, contatta il tuo web developer.
 ---
 
 **© 2026 ARYA Premium Barber House** - Designed with precision and passion
+=======
+# arya-bot-cloud
+>>>>>>> d224a6e29466537c3469c9391f36975d0f6f24a5
