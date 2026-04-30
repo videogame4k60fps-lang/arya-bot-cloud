@@ -99,8 +99,26 @@ app.post('/api/appointments', (req, res) => {
 // ==========================================
 // 3. WHATSAPP AI AGENT CON GROQ (LLaMA 3)
 // ==========================================
+if (!process.env.GROQ_API_KEY) {
+    console.error('⛔ ERRORE CRITICO: GROQ_API_KEY mancante nel file .env — il modulo AI non funzionerà.');
+}
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const chatMemories = {};
+
+// Endpoint diagnostica: GET /api/test-groq
+app.get('/api/test-groq', async (req, res) => {
+    try {
+        const result = await groq.chat.completions.create({
+            messages: [{ role: 'user', content: 'Rispondi solo "OK"' }],
+            model: 'llama-3.1-8b-instant',
+        });
+        const reply = result.choices[0]?.message?.content || '(nessuna risposta)';
+        res.json({ ok: true, reply, model: 'llama-3.1-8b-instant' });
+    } catch (e) {
+        console.error('[TEST GROQ] Errore:', e);
+        res.status(500).json({ ok: false, error: e.message, status: e.status, details: e.error });
+    }
+});
 
 const waClient = new Client({
     authStrategy: new LocalAuth({ dataPath: process.env.SESSION_PATH || './.wwebjs_auth' }),
@@ -195,11 +213,20 @@ Non aggiungere altro dopo i comandi.`;
 
         if (finalMessage) {
             chatMemories[phone].push({ role: 'assistant', content: finalMessage });
-            msg.reply(finalMessage);
+            await msg.reply(finalMessage);
         }
 
     } catch (e) {
-        console.error('Errore Generazione AI:', e);
+        const errStatus = e.status ?? 'N/A';
+        const errMsg = e.error?.error?.message ?? e.message ?? String(e);
+        console.error(`[AI ERROR] status=${errStatus} message="${errMsg}"`);
+        console.error('[AI ERROR] stack:', e.stack);
+
+        try {
+            await msg.reply('Scusa, ho avuto un problema tecnico. Riprova tra qualche istante! 🙏');
+        } catch (replyErr) {
+            console.error('[AI ERROR] Impossibile inviare il messaggio di errore su WhatsApp:', replyErr.message);
+        }
     }
 });
 
